@@ -5,7 +5,6 @@ CREATE TABLE `categoria` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_categoria`),
-  KEY `categorias-categorias_idx` (`categoria_padre`),
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `comentario` (
@@ -19,9 +18,7 @@ CREATE TABLE `comentario` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_comentario`),
-  KEY `comentario_padre_idx` (`comentario_padre`),
-  KEY `usuario_idx` (`usuario`),
-  KEY `comentario_posteo_idx` (`posteo`),
+ 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `posteo` (
@@ -34,8 +31,7 @@ CREATE TABLE `posteo` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_posteo`),
-  KEY `posteo-categoria_idx` (`categoria`),
-  KEY `posteo-usuario_idx` (`usuario`),
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `usuario` (
