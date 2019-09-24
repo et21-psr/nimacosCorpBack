@@ -6,7 +6,6 @@ CREATE TABLE `categoria` (
   `update_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_categoria`),
   KEY `categorias-categorias_idx` (`categoria_padre`),
-  CONSTRAINT `categoria_padre` FOREIGN KEY (`categoria_padre`) REFERENCES `categoria` (`id_categoria`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `comentario` (
@@ -23,9 +22,6 @@ CREATE TABLE `comentario` (
   KEY `comentario_padre_idx` (`comentario_padre`),
   KEY `usuario_idx` (`usuario`),
   KEY `comentario_posteo_idx` (`posteo`),
-  CONSTRAINT `comentario_padre` FOREIGN KEY (`comentario_padre`) REFERENCES `comentario` (`id_comentario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `comentario_posteo` FOREIGN KEY (`posteo`) REFERENCES `posteo` (`id_posteo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `usuario_c` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `posteo` (
@@ -40,8 +36,6 @@ CREATE TABLE `posteo` (
   PRIMARY KEY (`id_posteo`),
   KEY `posteo-categoria_idx` (`categoria`),
   KEY `posteo-usuario_idx` (`usuario`),
-  CONSTRAINT `categoria` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `usuario` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `usuario` (
